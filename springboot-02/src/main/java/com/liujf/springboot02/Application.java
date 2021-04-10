@@ -1,4 +1,4 @@
-package com.liujf.springboot01;
+package com.liujf.springboot02;
 
 import java.util.Arrays;
 

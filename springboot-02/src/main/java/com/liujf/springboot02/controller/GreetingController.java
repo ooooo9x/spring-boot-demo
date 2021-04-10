@@ -1,8 +1,8 @@
-package com.liujf.springboot01.controller;
+package com.liujf.springboot02.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.liujf.springboot01.vo.GreetingVO;
+import com.liujf.springboot02.vo.GreetingVO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

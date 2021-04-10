@@ -1,4 +1,4 @@
-package com.liujf.springboot01.vo;
+package com.liujf.springboot02.vo;
 
 import java.io.Serializable;
 

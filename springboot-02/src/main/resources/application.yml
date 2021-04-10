@@ -2,7 +2,7 @@ server:
     port: 9000
 spring:
     application:
-        name: springboot-01
+        name: springboot-02
     datasource:
         url: jdbc:mysql://192.168.121.134:3306/activiti7?useUnicode=true&characterEncoding=UTF-8&useSSL=false
         driver-class-name: com.mysql.jdbc.Driver
