@@ -9,7 +9,6 @@ springboot框架demo，基于2.3.2.RELEASE版本
 - restful接口;
 - 实现CommandLineRunner启动后执行的功能;
 - `@SpringBootTest`、`@AutoConfigureMockMvc`单元测试;
-- 支持activity
 
 #### 安装教程
 
