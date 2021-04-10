@@ -1,0 +1,87 @@
+server:
+    port: 9000
+spring:
+    application:
+        name: springboot-01
+    datasource:
+        url: jdbc:mysql://192.168.121.134:3306/activiti7?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: root123
+        type: com.alibaba.druid.pool.DruidDataSource
+        druid:
+            #初始化大小
+            initialSize: 1
+            #最小值
+            minIdle: 3
+            #最大值
+            maxActive: 20
+            #最大等待时间，配置获取连接等待超时，时间单位都是毫秒ms
+            maxWait: 60000
+            #配置间隔多久才进行一次检测，检测需要关闭的空闲连接
+#            timeBetweenEvictionRunsMillis: 60000
+            #配置一个连接在池中最小生存的时间
+#            minEvictableIdleTimeMillis: 300000
+#            validationQuery: SELECT 1 FROM DUAL
+#            testWhileIdle: true
+#            testOnBorrow: false
+#            testOnReturn: false
+            poolPreparedStatements: true
+            # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，
+            #'wall'用于防火墙，SpringBoot中没有log4j，我改成了log4j2
+            filters: stat,wall,slf4j
+            #最大PSCache连接
+            maxPoolPreparedStatementPerConnectionSize: 20
+#            useGlobalDataSourceStat: true
+            # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+            connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+            # 配置StatFilter
+#            web-stat-filter:
+                #默认为false，设置为true启动
+#                enabled: true
+#                url-pattern: "/*"
+#                exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+            #配置StatViewServlet
+#            stat-view-servlet:
+#                url-pattern: "/druid/*"
+                #允许那些ip
+#                allow: 127.0.0.1
+#                login-username: admin
+#                login-password: 123456
+                #禁止那些ip
+#                deny: 192.168.1.102
+                #是否可以重置
+#                reset-enable: true
+                #启用
+#                enabled: true
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    #activiti相关配置
+    activiti:
+#        database-schema-update说明：
+#        flase： 默认值。activiti在启动时，会对比数据库表中保存的版本，如果没有表或者版本不匹配，将抛出异常。
+#        true： activiti会对数据库中所有表进行更新操作。如果表不存在，则自动创建。
+#        create_drop： 在activiti启动时创建表，在关闭时删除表（必须手动关闭引擎，才能删除表）。
+#        drop-create： 在activiti启动时删除原来的旧表，然后在创建新表（不需要手动关闭引擎）。
+        database-schema-update: true
+        history-level: full
+        db-history-used: true
+        # 自动部署验证设置:true-开启（默认）、false-关闭
+        check-process-definitions: true
+#        process-definition-location-prefix是指定activiti流程描述文件的前缀（即路径），启动时，activiti就会去寻找此路径下的流程描述文件，并且自动部署；
+#        process-definition-location-suffixes是一个String数组，表示描述文件的默认后缀名，默认以上两种。
+#        # asyncExecutorEnabled属性设置设置true后将代替那些老的Job executor
+#        spring.activiti.async-executor-enabled=false
+#        spring.activiti.job-executor-activate=false
+#
+#        # asyncExecutorActivate是指activiti在流程引擎启动就激活AsyncExecutor,异步：true-开启（默认）、false-关闭
+#        spring.activiti.async-executor-activate=true
+#
+#        # 使用自定义的mybatis-mapper
+#        spring.activiti.custom-mybatis-mappers=
+#        spring.activiti.custom-mybatis-xmlmappers=
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"

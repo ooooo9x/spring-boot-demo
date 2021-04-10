@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:activiti="http://activiti.org/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="model-433a0557-ef6d-4bd9-90ce-ef054599df01" name="test0" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_r3Ec9G1oO" name="test0" isExecutable="true">
+    <bpmn2:documentation />
+    <bpmn2:startEvent id="Event_1">
+      <bpmn2:outgoing>SequenceFlow_1a8k37a</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:userTask id="UserTask_0mt549c" name="填写审批单" activiti:formKey="form0" activiti:assignee="${assignee}" activiti:priority="0">
+      <bpmn2:incoming>SequenceFlow_1a8k37a</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0iwvhuu</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="UserTask_0msp1ae" name="部门经理审批" activiti:formKey="form1" activiti:assignee="${mgr}" activiti:priority="0">
+      <bpmn2:incoming>SequenceFlow_0iwvhuu</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1a3vx3h</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="UserTask_174hy88" name="总经理审批" activiti:formKey="form2" activiti:assignee="${top}" activiti:priority="0">
+      <bpmn2:incoming>SequenceFlow_1a3vx3h</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0vgljiy</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:endEvent id="EndEvent_0n2pbjx">
+      <bpmn2:incoming>SequenceFlow_0vgljiy</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1a8k37a" sourceRef="Event_1" targetRef="UserTask_0mt549c" />
+    <bpmn2:sequenceFlow id="SequenceFlow_0iwvhuu" sourceRef="UserTask_0mt549c" targetRef="UserTask_0msp1ae" />
+    <bpmn2:sequenceFlow id="SequenceFlow_1a3vx3h" sourceRef="UserTask_0msp1ae" targetRef="UserTask_174hy88" />
+    <bpmn2:sequenceFlow id="SequenceFlow_0vgljiy" sourceRef="UserTask_174hy88" targetRef="EndEvent_0n2pbjx" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_r3Ec9G1oO">
+      <bpmndi:BPMNShape id="_BPMNShape_Event_2" bpmnElement="Event_1">
+        <dc:Bounds x="212" y="262" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0mt549c_di" bpmnElement="UserTask_0mt549c">
+        <dc:Bounds x="350" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0msp1ae_di" bpmnElement="UserTask_0msp1ae">
+        <dc:Bounds x="550" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_174hy88_di" bpmnElement="UserTask_174hy88">
+        <dc:Bounds x="740" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0n2pbjx_di" bpmnElement="EndEvent_0n2pbjx">
+        <dc:Bounds x="922" y="262" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1a8k37a_di" bpmnElement="SequenceFlow_1a8k37a">
+        <di:waypoint x="248" y="280" />
+        <di:waypoint x="350" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0iwvhuu_di" bpmnElement="SequenceFlow_0iwvhuu">
+        <di:waypoint x="450" y="280" />
+        <di:waypoint x="550" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1a3vx3h_di" bpmnElement="SequenceFlow_1a3vx3h">
+        <di:waypoint x="650" y="280" />
+        <di:waypoint x="740" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0vgljiy_di" bpmnElement="SequenceFlow_0vgljiy">
+        <di:waypoint x="840" y="280" />
+        <di:waypoint x="922" y="280" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
