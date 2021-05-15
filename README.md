@@ -3,7 +3,14 @@
 #### 介绍
 针对springboot的各种demo工程，工程列表：
 - springboot-01: springboot框架demo，基于2.3.2.RELEASE版本
-
+  - restful接口;
+  - 实现CommandLineRunner启动后执行的功能;
+  - `@SpringBootTest`、`@AutoConfigureMockMvc`单元测试;
+- springboot-02: springboot框架demo，基于2.3.2.RELEASE版本
+  - restful接口;
+  - 实现CommandLineRunner启动后执行的功能;
+  - `@SpringBootTest`、`@AutoConfigureMockMvc`单元测试;
+  - 支持activiti7，参考网址：[activiti7与springboot2整合]
 
 #### 参与贡献
 
